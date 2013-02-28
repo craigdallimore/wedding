@@ -23,5 +23,5 @@ window.App = new Backbone.Marionette.Application();
 App.start();
 
 App.module("Tmpl", function(Tmpl, App) {
-    Tmpl.sample=function(obj){var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};with(obj||{}){__p+='<p>This is sample HTML</p>';}return __p;};
+    Tmpl.sample=function(obj) {obj || (obj = {});var __t, __p = '', __e = _.escape, __d = obj.obj || obj;__p += '<p>This is sample HTML. Kaizen.</p>';return __p};
 });

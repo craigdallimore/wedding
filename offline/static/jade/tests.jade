@@ -1,0 +1,44 @@
+// HTML 5
+!!! 5
+
+//- Use the .oldie class to target IE < 9
+//if lte IE 8
+    <html class='no-js oldie' lang='en'>
+
+//[if gt IE 8]<!
+html.no-js(lang='en')
+    //<![endif]
+    head
+
+
+        meta(charset='UTF-8')
+        title Tests
+
+        link(rel='stylesheet', href='tests/css/mocha.css')
+
+        script(src='tests/js/mocha.js')
+        script(src='tests/js/chai.js')
+
+        script
+            mocha.setup('bdd')
+
+        script(src='static/js/libs/jquery-1.8.3.min.js')
+        script(src='static/js/libs/underscore-1.4.4.min.js')
+        script(src='static/js/libs/backbone-0.9.10.min.js')
+        script(src='static/js/libs/backbone.marionette-1.0.0-rc6.min.js')
+        script(src='static/dist/app.min.js')
+        script(src='tests/js/tests.js')
+        
+
+    body
+
+        div#mocha
+
+        script
+            $(function(){
+              mocha
+                .globals(['App']) // acceptable globals
+                .run()
+            })
+
+// KAIZEN
