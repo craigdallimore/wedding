@@ -1,0 +1,36 @@
+!!! 5
+html
+  head
+    meta(charset='UTF-8')
+    title Tests
+
+    link(rel='stylesheet', href='css/mocha.css')
+
+    script(src='js/mocha.js')
+    script(src='js/chai.js')
+    //script(src='js/sinon-chai.js')
+    script(src='js/sinon-1.7.3.js')
+
+    script.
+      mocha.setup('bdd')
+
+    script(src='../../static/js/libs/modernizr-2.6.2.min.js')
+    script(src='../../static/js/libs/jquery-2.0.3.min.js')
+    script(src='../../static/js/libs/underscore-min.js')
+    script(src='../../static/js/libs/backbone-min.js')
+    script(src='../../static/js/libs/backbone.marionette.min.js')
+    script(src='../../static/dist/app.min.js')
+
+    block testscript
+
+  body
+
+    div#mocha
+
+    script.
+      mocha
+        .globals(['App']) // acceptable globals
+        .run()
+
+// KAIZEN
+
