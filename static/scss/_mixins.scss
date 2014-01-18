@@ -7,53 +7,53 @@ $grid: 12px;
 
 // Border
 @mixin border-radius($values) {
-    -webkit-border-radius: $values;
-    -moz-border-radius: $values;
-    -ms-border-radius: $values;
-    -o-webkit-border-radius: $values;
-    border-radius: $values;
+  -webkit-border-radius: $values;
+  -moz-border-radius: $values;
+  -ms-border-radius: $values;
+  -o-webkit-border-radius: $values;
+  border-radius: $values;
 }
 
 // Box
 @mixin sqr($value) {
-    width: $value;
-    height: $value;
+  width: $value;
+  height: $value;
 }
 
 @mixin box-sizing($values) {
-    -webkit-box-sizing: $values;
-    -moz-box-sizing: $values;
-    -ms-box-sizing: $values;
-    -o-box-sizing: $values;
-    box-sizing: $values;
+  -webkit-box-sizing: $values;
+  -moz-box-sizing: $values;
+  -ms-box-sizing: $values;
+  -o-box-sizing: $values;
+  box-sizing: $values;
 }
 
 @mixin box-shadow($value) {
-    -webkit-box-shadow: #{$value};
-    -moz-box-shadow: #{$value};
-    -ms-box-shadow: #{$value};
-    -o-box-shadow: #{$value};
-    box-shadow: #{$value};
+  -webkit-box-shadow: #{$value};
+  -moz-box-shadow: #{$value};
+  -ms-box-shadow: #{$value};
+  -o-box-shadow: #{$value};
+  box-shadow: #{$value};
 }
 
 // Transform
 @mixin rotate ($deg) {
-    -webkit-transform: rotate(#{$deg}deg);
-    -moz-transform: rotate(#{$deg}deg);
-    -ms-transform: rotate(#{$deg}deg);
-    -o-transform: rotate(#{$deg}deg);
-    transform: rotate(#{$deg}deg);
+  -webkit-transform: rotate(#{$deg}deg);
+  -moz-transform: rotate(#{$deg}deg);
+  -ms-transform: rotate(#{$deg}deg);
+  -o-transform: rotate(#{$deg}deg);
+  transform: rotate(#{$deg}deg);
 }
 
 // Transition
 @mixin transition($property, $duration, $ms: false) {
-    -webkit-transition: $property $duration ease-in-out;
-    -moz-transition: $property $duration ease-in-out;
-    -o-transition: $property $duration ease-in-out;
-    @if ($ms) {
-        -ms-transition: $property $duration ease-in-out;
-    }
-    transition: $property $duration ease-in-out;
+  -webkit-transition: $property $duration ease-in-out;
+  -moz-transition: $property $duration ease-in-out;
+  -o-transition: $property $duration ease-in-out;
+  @if ($ms) {
+    -ms-transition: $property $duration ease-in-out;
+  }
+  transition: $property $duration ease-in-out;
 }
 
 
