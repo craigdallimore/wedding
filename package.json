@@ -21,4 +21,10 @@
     "lodash":  "2.2.x"
   }
 
+  "scripts": {
+
+    "test": "grunt mocha"
+
+  }
+
 }
