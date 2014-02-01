@@ -19,7 +19,7 @@
     "jade":    "*",
     "express": "3.x",
     "lodash":  "2.2.x"
-  }
+  },
 
   "scripts": {
 
