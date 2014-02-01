@@ -1,0 +1,88 @@
+<doctype HTML>
+<html>
+
+  <head>
+
+    <meta charset="utf-8"/>
+    <title>Specrunner</title>
+    <link rel="stylesheet" href="css/mocha.css" />
+
+  </head>
+
+  <body>
+
+    <div id="mocha"></div>
+
+    <script src="js/mocha.js"></script>
+    <script src="../../static/js/libs/require.js"></script>
+    <script>
+
+      require.config({
+
+        baseUrl: '../../static/js/',
+
+        paths: {
+
+          // App
+          underscore: 'libs/underscore-min',
+          backbone:   'libs/backbone-min',
+          marionette: 'libs/backbone.marionette.min',
+          jquery:     'libs/jquery-2.1.0.min',
+
+
+          // test suite
+          spec:       '../../test/spec',
+          vendor:     '../../test/specrunner/js'
+
+        },
+
+        shim: {
+
+          // App
+          'underscore': { exports: '_' },
+          'jquery':     { exports: '$' },
+          'backbone':   { deps: ['underscore', 'jquery'], exports: 'Backbone' },
+          'marionette': { deps: [ 'backbone' ], exports: 'Marionette' },
+
+          'mocha': { exports: 'mocha' }
+
+        }
+
+      });
+
+      var assert, should, expect;
+
+      require([
+
+        'require',
+        'vendor/chai',
+        'vendor/sinon-chai',
+        'vendor/sinon-1.7.3'
+
+      ], function(require, chai, sinonChai) {
+
+        // Chai (implied globals)
+        assert = chai.assert;
+        should = chai.should();
+        expect = chai.expect;
+
+        chai.use(sinonChai);
+
+        // Mocha
+        mocha.setup('bdd');
+
+        require([ 'spec/main' ], function(main) {
+
+          mocha.run();
+
+        });
+
+      });
+
+
+
+    </script>
+
+  </body>
+
+</html>

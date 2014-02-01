@@ -1,41 +1,36 @@
-@import "compass/reset";
-@import "_mixins";
-
 /* Globals
 ---------------------------------------------------------------------------- */
 
 * {
+
   @include box-sizing(border-box);
+
 }
 
 body {
-  background: $clr_bg;
-  color: $clr_body_copy;
+
+  background: $clr-bg;
+  color: $clr-body-copy;
 
 
   font: {
     size: 0.9em;
     family: arial, helvetica, sans-serif;
   }
+
 }
 
 .clearfix:after {
+
   content: "";
   clear: both;
   display: block;
-};
 
-.ir { /* Image Replacement */
-  text-indent: -999em;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.icon {
-  display: inline-block;
 }
 
 .hide {
+
   display: none;
+
 }
 

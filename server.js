@@ -7,25 +7,31 @@ var express = require('express'),
 // Configuration
 // ----------------------------------------------------------------------------
 app.configure(function() {
-  app.use(express.static(__dirname + '/../'));
-  app.use(express.static(__dirname + '/../static'));
-  app.set('views', __dirname + '/../static/jade/');
+
+  app.use(express.static(__dirname + '/'));
+  app.use(express.static(__dirname + '/static'));
+  app.set('views', __dirname + '/server/views/');
   app.use('view engine', 'jade');
+
 });
 
 app.configure('development', function() {
+
   app.use(express.logger('dev'));
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+
 });
 
 app.configure('production', function() {
+
   app.use(express.logger());
   app.use(express.errorHandler());
+
 });
 
 // Routes
 // ----------------------------------------------------------------------------
-require('./routes')(app);
+require('./server/routes')(app);
 
 // Launch
 // ----------------------------------------------------------------------------
