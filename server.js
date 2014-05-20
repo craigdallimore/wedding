@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Set up
 // ----------------------------------------------------------------------------
 var express = require('express'),
@@ -37,4 +38,3 @@ require('./server/routes')(app);
 // ----------------------------------------------------------------------------
 app.listen(port);
 console.log('Node server listening on port ' + port);
-
