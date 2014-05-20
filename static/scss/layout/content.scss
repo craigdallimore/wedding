@@ -1,0 +1,23 @@
+// Content layout
+// ----------------------------------------------------------------------------
+
+.content {
+
+  @include outer-container();
+
+  h2 {
+
+    @include span-columns(3 of 12);
+    @include shift(1);
+
+    @include media($mobile) {
+
+      @include fill-parent();
+      @include shift(0);
+      text-align: center;
+
+    }
+
+  }
+
+}

@@ -1,10 +1,13 @@
+// Libs
+@import "libs/bourbon/bourbon";
+@import "libs/neat/neat";
+@import "libs/normalize";
+
 // Vars
 @import "mixins";
 @import "breakpoints";
 @import "colours";
-
-// Libs
-@import "libs/normalize";
+@import "placeholders";
 
 
 // Implementation
@@ -12,5 +15,16 @@
 @import "base/typography";
 
 
-//@import "layout/";
-//@import "theme/";
+@import "layout/main";
+@import "layout/intro";
+@import "layout/content";
+@import "layout/decoration";
+@import "layout/summary-list";
+@import "layout/contact";
+
+@import "theme/main";
+@import "theme/intro";
+@import "theme/content";
+@import "theme/decoration";
+@import "theme/summary-list";
+@import "theme/contact";

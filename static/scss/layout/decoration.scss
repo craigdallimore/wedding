@@ -1,0 +1,17 @@
+// Decoration layout
+// ----------------------------------------------------------------------------
+
+.decoration {
+
+  @extend %cover-image;
+  height: 450px;
+
+}
+
+.scroll-holder {
+
+  position: fixed;
+  overflow: hidden;
+
+
+}

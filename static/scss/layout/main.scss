@@ -1,0 +1,71 @@
+// Main layout
+// ----------------------------------------------------------------------------
+
+#main {
+
+  @include outer-container;
+
+  h1 {
+
+    text-align: center;
+    margin-top: $gutter * 4;
+
+  }
+
+  @include media($tablet) {
+
+    h1 {
+
+      margin-top: $gutter * 2;
+
+    }
+
+  }
+
+  @include media($desktop) {
+
+      margin-top: $gutter;
+
+  }
+
+}
+
+#export {
+
+  margin-top: 3em;
+  background: white;
+  font-family: Hannah;
+  padding: $gutter;
+  font-size: 3em;
+  color: #aaa;
+  text-decoration: none;
+
+}
+
+#map {
+
+  @include span-columns(10);
+  @include shift(1);
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  height: 30em;
+  border: 1px solid $clr-blue;
+
+  @include media($mobile) {
+
+    @include shift(0);
+    @include fill-parent;
+    border-left: 0;
+    border-right: 0;
+
+  }
+
+  @include media($desktop) {
+
+    @include fill-parent();
+    @include shift(0);
+
+  }
+
+}
+
