@@ -5,8 +5,9 @@ require.config({
 
   paths: {
 
-    async:  'libs/async',
-    jquery: 'libs/jquery-1.11.0.min',
+    async   : '../bower_components/async/lib/async',         // used for googlemap
+    jquery  : '../bower_components/jquery/dist/jquery.min',  // apparently mandatory
+    skrollr : '../bower_components/skrollr/dist/skrollr.min' // gives us scrolly fun
 
   }
 

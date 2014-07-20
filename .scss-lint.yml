@@ -1,0 +1,7 @@
+linters:
+  NameFormat:
+    enabled: false
+  SpaceAfterPropertyColon:
+    enabled: false
+  SpaceAfterPropertyName:
+    enabled: false

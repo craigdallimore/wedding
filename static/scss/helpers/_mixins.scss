@@ -1,0 +1,63 @@
+// ----------------------------------------------------------------------------
+// Mixins
+// ----------------------------------------------------------------------------
+
+// Box sizing
+// ----------------------------------------------------------------------------
+@mixin box-sizing($values) {
+
+  -webkit-box-sizing : $values;
+  -moz-box-sizing    : $values;
+  -ms-box-sizing     : $values;
+  -o-box-sizing      : $values;
+  box-sizing         : $values;
+
+}
+
+// Rotate
+// ----------------------------------------------------------------------------
+@mixin rotate ($deg) {
+
+  -webkit-transform : rotate(#{$deg}deg);
+  -moz-transform    : rotate(#{$deg}deg);
+  -ms-transform     : rotate(#{$deg}deg);
+  -o-transform      : rotate(#{$deg}deg);
+  transform         : rotate(#{$deg}deg);
+
+}
+
+// Transition
+// ----------------------------------------------------------------------------
+@mixin transition($property, $duration, $easing) {
+
+  -webkit-transition : $property $duration $easing;
+  -moz-transition    : $property $duration $easing;
+  -ms-transition     : $property $duration $easing;
+  -o-transition      : $property $duration $easing;
+  transition         : $property $duration $easing;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

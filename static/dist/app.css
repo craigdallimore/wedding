@@ -357,31 +357,6 @@ td,
 th {
   padding: 0; }
 
-.summary-list, #contact {
-  padding: 1.618em;
-  margin-top: 0.809em;
-  background: #fff;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 57.35098%; }
-  .summary-list:last-child, #contact:last-child {
-    margin-right: 0; }
-  @media screen and (max-width: 700px) {
-    .summary-list, #contact {
-      margin-left: 0%;
-      width: 100%; } }
-  @media screen and (min-width: 1280px) {
-    .summary-list, #contact {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%;
-      margin-left: 0%; }
-      .summary-list:last-child, #contact:last-child {
-        margin-right: 0; } }
-
 .decoration {
   background-repeat: no-repeat;
   background-position: center top;
@@ -395,6 +370,9 @@ th {
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box; }
+
+html, body {
+  height: 100%; }
 
 body {
   background: #efefef;
@@ -431,15 +409,7 @@ h2 {
   line-height: 1em; }
 
 #main {
-  *zoom: 1;
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  #main:before, #main:after {
-    content: " ";
-    display: table; }
-  #main:after {
-    clear: both; }
+  height: 100%; }
   #main h1 {
     text-align: center;
     margin-top: 6.472em; }
@@ -450,124 +420,38 @@ h2 {
     #main {
       margin-top: 1.618em; } }
 
-#export {
-  margin-top: 3em;
-  background: white;
-  font-family: Hannah;
-  padding: 1.618em;
-  font-size: 3em;
-  color: #aaa;
-  text-decoration: none; }
-
-#map {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 82.94039%;
-  margin-left: 8.5298%;
-  margin-top: 1.618em;
-  margin-bottom: 1.618em;
-  height: 30em;
-  border: 1px solid #5d9fbf; }
-  #map:last-child {
-    margin-right: 0; }
-  @media screen and (max-width: 700px) {
-    #map {
-      margin-left: 0%;
-      width: 100%;
-      border-left: 0;
-      border-right: 0; } }
-  @media screen and (min-width: 1280px) {
-    #map {
-      width: 100%;
-      margin-left: 0%; } }
-
 #intro {
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  background-image: url("../img/large/kayak.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+  #intro h1 {
+    margin: 0;
+    position: fixed;
+    top: 3em;
+    right: 3em; }
 
-.content {
-  *zoom: 1;
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  .content:before, .content:after {
-    content: " ";
-    display: table; }
-  .content:after {
-    clear: both; }
-  .content h2 {
+#navigation {
+  background: white; }
+  #navigation ul {
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0; }
+  #navigation li {
+    display: block; }
+  #navigation a {
     float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%;
-    margin-left: 8.5298%; }
-    .content h2:last-child {
-      margin-right: 0; }
-    @media screen and (max-width: 700px) {
-      .content h2 {
-        width: 100%;
-        margin-left: 0%;
-        text-align: center; } }
+    color: white;
+    width: 20%;
+    padding: 1.5em;
+    font-size: 1.5em;
+    text-align: center; }
 
-.decoration {
-  height: 450px; }
-
-.scroll-holder {
-  position: fixed;
-  overflow: hidden; }
-
-.summary-list dt, .summary-list dd {
-  padding-bottom: 1.618em; }
-.summary-list dt {
-  float: left;
-  display: block;
-  margin-right: 4.82916%;
-  width: 30.11389%; }
-  .summary-list dt:last-child {
-    margin-right: 0; }
-.summary-list dd {
-  float: left;
-  display: block;
-  margin-right: 4.82916%;
-  width: 65.05695%;
-  margin-right: 0;
-  margin-left: 0; }
-  .summary-list dd:last-child {
-    margin-right: 0; }
-
-#main {
-  /*background-image: url('../img/bunting.png');*/
-  /*background-color: $clr-bg;*/
-  /*background-position: center 0;*/
-  /*background-repeat: no-repeat;*/ }
-  @media screen and (min-width: 700px) {
-    #main {
-      /*background-image: url('../img/bunting-med.png');*/ } }
-
-#intro h1 {
-  color: #fff; }
-
-.content {
-  background-color: #fff; }
-
-#intro {
-  background-image: url("../img/large/kayak.jpg"); }
-
-#decoration-1 {
-  background-image: url("../img/large/spotifyish.jpg"); }
-
-#decoration-2 {
-  background-image: url("../img/large/wines.jpg"); }
-
-.summary-list dt {
-  text-align: right; }
-
-#contact h2 {
-  text-align: center; }
-#contact a {
-  display: block;
-  text-align: center;
-  color: #333;
-  text-decoration: underline; }
+#details {
+  height: 100%; }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,30 +1,53 @@
+// ----------------------------------------------------------------------------
+// Main
+// ----------------------------------------------------------------------------
+
+// Libraries
+// ----------------------------------------------------------------------------
+
+$fa-font-path : '../../bower_components/font-awesome/fonts/'; // path to fonts
+
+@import '../bower_components/meyer-reset/stylesheets/_meyer-reset';
+@import '../bower_components/susy/sass/_susy';
+
+// Requires gulp-sass to work with sass 3.3
+@import '../bower_components/breakpoint-sass/stylesheets/_breakpoint';
+@import '../bower_components/font-awesome/scss/font-awesome';
+
+// Helpers
+// ----------------------------------------------------------------------------
+
+@import 'helpers/_mixins';
+@import 'helpers/_placeholders';
+@import 'helpers/_functions';
+
+// Config
+// ----------------------------------------------------------------------------
+
+@import 'config/_config';       // susy config
+@import 'config/_grid';
+@import 'config/_typography';
+@import 'config/_breakpoints';
+@import 'config/_colors';
+@import 'config/_durations';
+
+// Implementation
+// ----------------------------------------------------------------------------
+
+
 // Libs
-@import "libs/bourbon/bourbon";
-@import "libs/neat/neat";
-@import "libs/normalize";
+// Ok, so you need
+// - sass to compile
+
+
 
 // Vars
-@import "mixins";
-@import "breakpoints";
-@import "colours";
-@import "placeholders";
+//@import "mixins";
+//@import "breakpoints";
+//@import "colours";
+//@import "placeholders";
 
 
 // Implementation
-@import "base/common";
-@import "base/typography";
-
-
-@import "layout/main";
-@import "layout/intro";
-@import "layout/content";
-@import "layout/decoration";
-@import "layout/summary-list";
-@import "layout/contact";
-
-@import "theme/main";
-@import "theme/intro";
-@import "theme/content";
-@import "theme/decoration";
-@import "theme/summary-list";
-@import "theme/contact";
+@import 'base/_common';
+@import 'components/_page';

@@ -26,9 +26,9 @@ html.no-js(lang='en')
 
     //- Provides some CSS3 selectors for IE 6,7,8
     //if (gte IE 6)&(lte IE 8)
-      script(src='/static/js/libs/selectivizr-1.0.2.min.js')
+      script(src='/static/bower_components/selectivizr/selectivizr-1.0.2.min.js')
 
-    script(src='/static/js/libs/modernizr-2.6.2.min.js')
+    script(src='/static/dist/modernizr.js')
 
   body
     noscript
@@ -36,6 +36,7 @@ html.no-js(lang='en')
 
     block content
 
-    script(src='/static/js/libs/require.js', data-main='/static/js/config')
+    script(src='http://localhost:35729/livereload.js')
+    script(src='/static/bower_components/requirejs/require.js', data-main='/static/js/config')
 
 //- KAIZEN

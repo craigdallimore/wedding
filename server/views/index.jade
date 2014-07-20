@@ -1,18 +1,42 @@
 extends layout
 
-block title
-  title Fiona &amp; Craig
 
 block content
 
-  section#main
+  #main
 
-    .decoration#intro
-      h1 Fiona &amp; Craig are getting married!
+    #intro(
+      data-smooth-scrolling="on",
+      data-top        = "background-position:0 0em",
+      data-top-bottom = "background-position:0 2em"
+      )
+      h1(
+        data-top = "opacity:1",
+        data-600 = "opacity:0"
+        ) Fiona &amp; Craig are getting married!
 
-    .content
+    nav#navigation
+      ul
+        li
+          a(href="#details") Details
+        li
+          a(href="#agenda") Agenda
+        li
+          a(href="#rsvp") RSVP
+        li
+          a(href="#telegram") Send a telegram
+        li
+          a(href="#registry") Registry
+
+
+    #details(
+      data-bottom-top = "background-color:rgb(0,0,255)",
+      data-top-bottom = "background-color:rba(255,0,0)"
+      )
+
       h2 Details
-      dl.summary-list
+
+      dl
 
         dt When:
         dd 7th February 2015, 1:30pm
@@ -20,15 +44,29 @@ block content
         dt Where:
         dd Waihi Waterlily Gardens, Bay Of Plenty, New Zealand
 
-    .decoration#decoration-1
-
-    .content
-      h2 Contact
       #contact
         a(href='mailto:wedding@fionaandcraig.com') wedding@fionaandcraig.com
+      // -- pickup details
+      // -- food restrictions
+      // -- bringing kids
+      // -- submit music tracks
 
-    .decoration#decoration-2
-
-    .content
-      h2 Map
       #map
+
+    #agenda
+
+      h2 Agenda
+
+    #rsvp
+
+      h2 R.S.V.P.
+
+    #telegram
+
+      h2 Send a telegram
+
+    #registry
+
+      h2. Registry
+
+    //- KAIZEN

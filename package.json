@@ -1,30 +1,24 @@
 {
-
-  "name":        "ProjectTemplate",
-  "description": "Project Template",
-  "version":     "0.0.1",
-  "private":     true,
-
+  "name": "WeddingSite",
+  "description": "Wedding website",
+  "version": "0.0.1",
+  "private": true,
   "devDependencies": {
-    "grunt":               "0.4.x",
+    "chai": "1.5.x",
+    "grunt": "0.4.x",
+    "grunt-contrib-sass": "0.6.x",
     "grunt-contrib-watch": "0.2.x",
-    "grunt-contrib-sass":  "0.6.x",
-    "grunt-mocha":         "0.4.x",
-    "sinon-chai":          "2.4.x",
-    "chai":                "1.5.x",
-    "sinon":               "1.7.x"
+    "grunt-mocha": "0.4.x",
+    "grunt-modernizr": "^0.5.2",
+    "sinon": "1.7.x",
+    "sinon-chai": "2.4.x"
   },
-
   "dependencies": {
-    "jade":    "*",
+    "jade": "*",
     "express": "3.x",
-    "lodash":  "2.2.x"
+    "lodash": "2.2.x"
   },
-
   "scripts": {
-
     "test": "grunt mocha"
-
   }
-
 }

@@ -1,0 +1,174 @@
+// ----------------------------------------------------------------------------
+// Typography
+// ----------------------------------------------------------------------------
+
+// Imports
+// ----------------------------------------------------------------------------
+
+$font-path: '../fonts/';
+
+@each $font-face in ywft-hannah-regular {
+  @font-face {
+    font-family: $font-face; font-style: normal; font-weight: normal;
+    src: url('#{$font-path + $font-face}.eot');
+    src: url('#{$font-path + $font-face}.eot?') format('eot'),
+      url('#{$font-path + $font-face}.woff') format('woff'),
+      url('#{$font-path + $font-face}.ttf')  format('truetype');
+  }
+}
+
+// Text sizing
+// ----------------------------------------------------------------------------
+
+$text-size-XXS       : 5px;
+$text-size-XS        : 9px;
+$text-size-S         : 12px;
+$text-size-M         : 16px;
+$text-size-L         : 20px;
+$text-size-XL        : 24px;
+$text-size-XXL       : 34px;
+$text-base-font-size : $text-size-M ; // Set on body
+
+// Line heights
+// ----------------------------------------------------------------------------
+
+$text-base-line-height : 1.18;
+
+// Fonts
+// ----------------------------------------------------------------------------
+
+$text-family-sans    : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!default;
+$text-default-family : $text-family-sans;
+
+// Anchors
+// ----------------------------------------------------------------------------
+
+a {
+
+  text-decoration: none;
+
+}
+
+// Not anchors
+// ----------------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hgroup,
+ul,
+ol,
+dd,
+p,
+figure,
+pre,
+table,
+fieldset,
+hr {
+
+  color  : #fff;
+  margin : 0;
+
+}
+
+// Headings
+// ----------------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  font-family: 'ywft-hannah-regular';
+
+}
+
+// Font ramp
+// ----------------------------------------------------------------------------
+
+$phi              : .618;
+$h1-size          : 102px;
+$h2-size          : $h1-size * $phi;
+$h3-size          : $h2-size * $phi;
+$h4-size          : $h3-size * $phi;
+$h5-size          : $h4-size * $phi;
+$h6-size          : $h5-size * $phi;
+
+$h1-top-spacer    : 0;
+$h1-bottom-spacer : $h1-size / 28;
+
+$h2-top-spacer    : 1.7px;
+$h2-bottom-spacer : 2.4px;
+
+$h3-top-spacer    : .7px;
+$h3-bottom-spacer : 2.2px;
+
+$h5-top-spacer    : .7px;
+
+$h6-top-spacer    : 3.3px;
+$h6-bottom-spacer : 1.5px;
+
+
+h1 {
+
+  font-size      : em($h1-size);
+  line-height    : 1.182;
+  padding-bottom : em($h1-bottom-spacer);
+
+}
+
+h2 {
+
+  font-size      : em($h2-size);
+  line-height    : 1.1418;
+  padding-bottom : em($h2-bottom-spacer);
+  padding-top    : em($h2-top-spacer);
+
+}
+
+h3 {
+
+  font-size      : em($h3-size);
+  line-height    : 1.25;
+  padding-bottom : em($h3-bottom-spacer);
+  padding-top    : em($h3-top-spacer);
+
+}
+
+h4 {
+
+  font-size      : em($h4-size);
+  line-height    : 1.334;
+
+}
+
+h5 {
+
+  font-size      : em($h5-size);
+  line-height    : 1.34;
+  padding-top    : em($h5-top-spacer);
+
+}
+
+h6 {
+
+  font-size      : em($h6-size);
+  line-height    : 1.35;
+  padding-bottom : em($h6-bottom-spacer);
+  padding-top    : em($h6-top-spacer);
+
+}
+
+p {
+
+  line-height    : 1.25;
+  padding-bottom : em(3.2px);
+  padding-top    : em(.6px);
+
+}
+
