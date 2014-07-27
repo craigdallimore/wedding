@@ -1,11 +1,14 @@
 extends layout
 
+block title
+  title Fish and Chips
+
 
 block content
 
   #main
 
-    #intro(
+    section#intro(
       data-smooth-scrolling="on",
       data-top        = "background-position:0 0em",
       data-top-bottom = "background-position:0 2em"
@@ -29,7 +32,7 @@ block content
           a(href="#registry") Registry
 
 
-    #details(
+    section#details(
       data-bottom-top = "background-color:rgb(0,0,255)",
       data-top-bottom = "background-color:rba(255,0,0)"
       )
@@ -46,26 +49,74 @@ block content
 
       #contact
         a(href='mailto:wedding@fionaandcraig.com') wedding@fionaandcraig.com
+
+      #map
+
+    section#agenda
+
+      h2 Agenda
+
+      h3 Thursday, 5th February
+
+      ul.list-agenda
+        li
+          span.time 7pm
+          span.event Possibly a nice dinner
+
+      h3 Friday, 6th February
+
+      ul.list-agenda
+        li
+          span.time 12 Midday
+          span.event Greetings
+        li
+          span.time 1pm
+          span.event The main event
+        li
+          span.time 2pm
+          span.event Photos
+        li
+          span.time 4pm
+          span.event David Bowie
+        li
+          span.time 6pm
+          span.event dinner
+
+      h3 Saturday, 7th February
+
+      ul.list-agenda
+        li
+          span.time 12 Midday
+          span.event Groove in the park
+
+
+    section#rsvp
+
       // -- pickup details
       // -- food restrictions
       // -- bringing kids
       // -- submit music tracks
-
-      #map
-
-    #agenda
-
-      h2 Agenda
-
-    #rsvp
-
       h2 R.S.V.P.
 
-    #telegram
+      if rsvped
+        p Thanks for RSVPing
+      else
+        form.form#form-rsvp(action="/rsvp", method="post")
+          ul
+            li
+              label.label(for="rsvp-email")
+              input#rsvp-email.input-text(name="email", type="email", placeholder="email")
+            li
+              label.label(for="rsvp-message")
+              textarea#rsvp-message(name="message")
+            li
+              input#rsvp-submit.input-submit(type="submit", value="RSVP")
+
+    section#telegram
 
       h2 Send a telegram
 
-    #registry
+    section#registry
 
       h2. Registry
 

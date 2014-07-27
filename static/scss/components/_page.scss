@@ -7,26 +7,49 @@
 
   height: 100%;
 
+  > section {
+
+    overflow       : hidden;
+    padding-bottom : em($gutter-XXL);
+
+  }
+
+}
+
+.form {
+
+  background  : #fff8dc;
+  padding-top : em($gutter-M);
+
+}
+
+.decoration {
+
+  @extend %cover-image;
+
+}
+
+h2 {
+
+  margin-top : em($gutter-S);
+  text-align : center;
+  width      : 100%;
+
 }
 
 #intro {
 
-  -webkit-background-size : cover;
-  -moz-background-size    : cover;
-  -o-background-size      : cover;
+  @include background-size(cover);
 
-  background-image        : url('../img/large/kayak.jpg');
-  background-size         : cover;
-  height                  : 100%;
-  overflow                : hidden;
-  position                : relative;
+  background-image : url('../img/large/kayak.jpg');
+  background-size  : cover;
+  height           : 100%;
+  overflow         : hidden;
+  position         : relative;
 
   h1 {
 
-    margin   : 0;
-    position : fixed;
-    top      : 3em;
-    right    : 3em;
+    margin : 0;
 
   }
 
@@ -34,13 +57,32 @@
 
 #navigation {
 
-  background : white;
+  a {
+
+    @include span(4 of 4);
+    color      : #fff;
+    font-family : ywft-hannah-regular;
+    font-weight : bold;
+    font-size  : em($text-size-L);
+    padding    : em($gutter-M);
+    text-align : center;
+
+  }
+
+  @include breakpoint($handset) {
+
+    a {
+
+      @include span(1 of 5);
+
+    }
+
+  }
 
   ul {
 
-    overflow : hidden;
-    margin   : 0 auto;
-    padding  : 0;
+    @include container(100%);
+    background : #f00;
 
   }
 
@@ -50,64 +92,105 @@
 
   }
 
-  a {
-
-    float      : left;
-    color      : white;
-    width      : 20%;
-    padding    : 1.5em;
-    font-size  : 1.5em;
-    text-align : center;
-
-  }
-
-}
-
-#details {
-
-  height : 100%;
-
-}
-.decoration {
-
-  @extend %cover-image;
-
-}
-
-h1 {}
-
-h2 {}
-
-#intro {}
-
-#navigation {
-
-  li {
-
-    a {}
-
-  }
-
 }
 
 #details {
 
   dl {
 
-    dt {}
-
-    dd {}
+    @include container(80%);
 
   }
 
+  dt,
+  dd {
+
+    @include span(6 of 6);
+    line-height    : em($text-size-L);
+    padding-bottom : em($gutter-M);
+    padding-top    : em($gutter-M);
+
+  }
+
+  dt {
+
+    clear : right;
+    color : #fff;
+
+  }
+
+  @include breakpoint($handset) {
+
+    dt {
+
+      @include span(3 of 12);
+      text-align : right;
+
+    }
+
+    dd {
+
+      @include span(9 at 4 of 12);
+
+    }
+
+  }
 
 }
 
-#contact {}
+#contact {
 
-#agenda {}
+  margin-top : em($gutter-M);
 
-#rsvp {}
+  a {
 
-#registry {}
+    color      : #fff;
+    display    : block;
+    margin     : 0 auto;
+    text-align : center;
+    width      : 80%;
+
+    &:hover {
+
+      text-decoration : underline;
+
+    }
+
+  }
+
+}
+
+#agenda {
+
+  background: #844cde;
+
+  h3 {
+
+    text-align : center;
+
+  }
+
+}
+
+.list-agenda {
+
+}
+
+#rsvp {
+
+  background : grey;
+
+}
+
+#telegram {
+
+  background: aquamarine;
+
+}
+
+#registry {
+
+  background : silver;
+
+}
 

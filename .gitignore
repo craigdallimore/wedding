@@ -7,3 +7,4 @@ static/dist/
 *.map
 index.html
 /tests/unit/*.html
+settings.js

@@ -38,6 +38,17 @@
 
 }
 
+// Background size
+// ----------------------------------------------------------------------------
+@mixin background-size($property) {
+
+  -webkit-background-size : $property;
+  -moz-background-size    : $property;
+  -ms-background-size     : $property;
+  -o-background-size      : $property;
+  background-size         : $property;
+
+}
 
 
 

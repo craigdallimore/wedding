@@ -12,8 +12,9 @@ module.exports = (grunt) ->
 
   grunt.initConfig
     dirs:
-      scss:     'static/scss/'
-      dist:     'static/dist/'
+      app  : 'static/js/app'
+      scss : 'static/scss/'
+      dist : 'static/dist/'
 
     # Analyses the application code and finds references to modernizr feature
     # detection tests.
