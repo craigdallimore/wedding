@@ -39,6 +39,7 @@ app.use(cookieParser());
 
 // Set up a session
 app.use(session({
+  key               : 'fishandchips',
   cookie            : {},
   secret            : settings.SESSION_SECRET,
   saveUninitialized : true,
@@ -72,12 +73,12 @@ if (env === 'development') {
 
 // Routes
 // ----------------------------------------------------------------------------
-require('./server/routes')(app);
+require('./server/routes')(app, settings);
 
 // Mailer setup
 // ----------------------------------------------------------------------------
 mailer.extend(app, {
-  from             : 'wedding@fionaandcraig.com',
+  from             : settings.EMAIL_USER,
   host             : settings.EMAIL_HOST,
   secureConnection : true,
   port             : 465,

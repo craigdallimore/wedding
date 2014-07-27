@@ -3,10 +3,13 @@ extends layout
 block title
   title Fish and Chips
 
-
 block content
 
   #main
+
+    //- Intro
+    //-
+    //-------------------------------------------------------------------------
 
     section#intro(
       data-smooth-scrolling="on",
@@ -17,6 +20,10 @@ block content
         data-top = "opacity:1",
         data-600 = "opacity:0"
         ) Fiona &amp; Craig are getting married!
+
+    //- Navigation
+    //-
+    //-------------------------------------------------------------------------
 
     nav#navigation
       ul
@@ -32,6 +39,10 @@ block content
           a(href="#registry") Registry
 
 
+    //- Details
+    //-
+    //-------------------------------------------------------------------------
+
     section#details(
       data-bottom-top = "background-color:rgb(0,0,255)",
       data-top-bottom = "background-color:rba(255,0,0)"
@@ -41,16 +52,20 @@ block content
 
       dl
 
-        dt When:
+        dt When
         dd 7th February 2015, 1:30pm
 
-        dt Where:
+        dt Where
         dd Waihi Waterlily Gardens, Bay Of Plenty, New Zealand
 
       #contact
         a(href='mailto:wedding@fionaandcraig.com') wedding@fionaandcraig.com
 
       #map
+
+    //- Agenda
+    //-
+    //-------------------------------------------------------------------------
 
     section#agenda
 
@@ -61,60 +76,91 @@ block content
       ul.list-agenda
         li
           span.time 7pm
-          span.event Possibly a nice dinner
+          span.event TBD
 
       h3 Friday, 6th February
 
       ul.list-agenda
         li
-          span.time 12 Midday
-          span.event Greetings
+          span.time 1.30 pm
+          span.event Bus arrives at the venue
         li
-          span.time 1pm
-          span.event The main event
+          span.time 2 pm
+          span.event Wedding ceremony
         li
-          span.time 2pm
-          span.event Photos
+          span.time 2.20 pm
+          span.event Bubbles &amp; mingling
         li
-          span.time 4pm
-          span.event David Bowie
+          span.time 2.40 pm
+          span.event Group photos
         li
-          span.time 6pm
-          span.event dinner
+          span.time 3 pm
+          span.event Bridal party photos &amp; lawn games start
 
       h3 Saturday, 7th February
 
       ul.list-agenda
         li
           span.time 12 Midday
-          span.event Groove in the park
+          span.event TBD
 
+    //-RSVP
+    //-------------------------------------------------------------------------
 
     section#rsvp
 
-      // -- pickup details
-      // -- food restrictions
-      // -- bringing kids
-      // -- submit music tracks
       h2 R.S.V.P.
 
+      if rsvpErrorEmail
+
+        p It looks like something went wrong and your message was not sent. This is probably Craig's fault. Can you pleasse try sending it again?
+
+      if rsvpErrorEmpty
+
+        p It looks like you didn't send a message, would you mind trying again?
+
       if rsvped
-        p Thanks for RSVPing
+
+        p Thanks for RSVPing! An email has been sent to <a href="mailto:wedding@fionaandcraig.com">wedding@fionaandcraig.com<a/> with your message.
+        button.btn.btn-retry I want to try again.
+
       else
+
+        p You can RSVP by filling in the form below or emailling us at <a href="mailto:wedding@fionaandcraig.com">wedding@fionaandcraig.com<a/>.
+        p It will help us plan correctly if you can tell us
+
+        ul
+          li what kind of food is out of bounds
+          li if anyone on your invitation is not coming
+          li who you are (the form doesn't know!)
+          li if you need a place on the bus to the venue (if so, please let us know where you are staying)
+          li your email address
+
         form.form#form-rsvp(action="/rsvp", method="post")
+
           ul
             li
-              label.label(for="rsvp-email")
-              input#rsvp-email.input-text(name="email", type="email", placeholder="email")
-            li
               label.label(for="rsvp-message")
-              textarea#rsvp-message(name="message")
+
+              if (rsvpMessage)
+                textarea#rsvp-message(name="rsvpMessage", maxlength="800", rows="8", required)= rsvpMessage
+              else
+                textarea#rsvp-message(name="rsvpMessage", maxlength="800", rows="8", required)
+
             li
               input#rsvp-submit.input-submit(type="submit", value="RSVP")
+
+    //- Telegram
+    //-
+    //-------------------------------------------------------------------------
 
     section#telegram
 
       h2 Send a telegram
+
+    //- Registry
+    //-
+    //-------------------------------------------------------------------------
 
     section#registry
 
