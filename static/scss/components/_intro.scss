@@ -14,8 +14,19 @@
 
   h1 {
 
-    margin : 0;
     color  : $clr-text-intro;
+    margin : 0;
+
+  }
+
+  .aid {
+
+    bottom     : em($gutter-XL);
+    color      : $clr-text-intro;
+    font-size  : em($text-size-XXL);
+    position   : absolute;
+    text-align : center;
+    width      : 100%;
 
   }
 
