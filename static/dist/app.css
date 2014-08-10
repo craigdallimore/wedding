@@ -1588,12 +1588,35 @@ table {
   background-repeat: no-repeat;
   background-size: cover; }
 
+.form, #contact a {
+  margin: 0 auto;
+  width: 80%; }
+
+#details dl, .list-agenda, #rsvp p,
+#rsvp ul, #telegram p, #telegram .form, #music p, #music .form, #registry p {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 30em;
+  max-width: 50vw; }
+  #details dl:after, .list-agenda:after, #rsvp p:after,
+  #rsvp ul:after, #telegram p:after, #telegram .form:after, #music p:after, #music .form:after, #registry p:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
 @font-face {
   font-family: ywft-hannah-regular;
   font-style: normal;
   font-weight: normal;
   src: url("../fonts/ywft-hannah-regular.eot");
   src: url("../fonts/ywft-hannah-regular.eot?") format("eot"), url("../fonts/ywft-hannah-regular.woff") format("woff"), url("../fonts/ywft-hannah-regular.ttf") format("truetype"); }
+@font-face {
+  font-family: OpenSans-Light-webfont;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/OpenSans-Light-webfont.eot");
+  src: url("../fonts/OpenSans-Light-webfont.eot?") format("eot"), url("../fonts/OpenSans-Light-webfont.woff") format("woff"), url("../fonts/OpenSans-Light-webfont.ttf") format("truetype"); }
 a {
   text-decoration: none; }
 
@@ -1613,7 +1636,7 @@ pre,
 table,
 fieldset,
 hr {
-  color: #fff;
+  color: #333333;
   margin: 0; }
 
 h1,
@@ -1668,58 +1691,164 @@ p {
   -o-box-sizing: border-box;
   box-sizing: border-box; }
 
-html, body {
+html,
+body {
   height: 100%; }
 
 body {
   background: white;
   color: black;
-  font-size: 0.9em;
-  font-family: arial, helvetica, sans-serif; }
-
-.clearfix:after {
-  content: "";
-  clear: both;
-  display: block; }
+  font-family: "OpenSans-Light-webfont", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: .9em; }
 
 .hide {
   display: none; }
 
+.form {
+  padding-top: 0.5em; }
+  .form textarea {
+    border: 0;
+    border: 1px solid #d2d2db;
+    border-radius: 5px;
+    font-family: "OpenSans-Light-webfont", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    padding: 0.5em;
+    width: 100%; }
+    .form textarea:focus {
+      border: 1px solid #b5b6c5; }
+
+.input-submit {
+  background: #bfead9;
+  border: 0;
+  border-radius: 3px;
+  color: #37a67a;
+  cursor: pointer;
+  padding: 0.5em;
+  width: 100%; }
+
+.input-text {
+  border: 1px solid #d2d2db;
+  border-radius: 5px;
+  padding: 0.5em;
+  width: 100%; }
+  .input-text:focus {
+    border: 1px solid #b5b6c5; }
+
 #main {
   height: 100%; }
+  #main > section {
+    overflow: hidden;
+    padding-bottom: 1.875em; }
+
+h2 {
+  margin-top: 0.3125em;
+  text-align: center;
+  width: 100%; }
 
 #intro {
   -webkit-background-size: cover;
   -moz-background-size: cover;
+  -ms-background-size: cover;
   -o-background-size: cover;
+  background-size: cover;
   background-image: url("../img/large/kayak.jpg");
   background-size: cover;
   height: 100%;
   overflow: hidden;
   position: relative; }
   #intro h1 {
-    margin: 0;
-    position: fixed;
-    top: 3em;
-    right: 3em; }
+    margin: 0; }
 
-#navigation {
-  background: white; }
-  #navigation ul {
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 0; }
-  #navigation li {
-    display: block; }
-  #navigation a {
+#details dt,
+#details dd {
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%;
+  line-height: 1.25em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em; }
+#details dt {
+  clear: right; }
+@media (min-width: 20em) and (max-width: 50em) {
+  #details dt {
+    width: 25%;
     float: left;
-    color: white;
-    width: 20%;
-    padding: 1.5em;
-    font-size: 1.5em;
-    text-align: center; }
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+    text-align: right; }
+  #details dd {
+    width: 75%;
+    float: right;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%; } }
 
-#details {
-  height: 100%; }
+#navigation a {
+  width: 100%;
+  float: left;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  color: white;
+  font-family: ywft-hannah-regular;
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 0.5em;
+  text-align: center; }
+@media (min-width: 20em) and (max-width: 50em) {
+  #navigation a {
+    width: 16.66667%;
+    float: left;
+    padding-left: 1.66667%;
+    padding-right: 1.66667%; } }
+#navigation ul {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #5ea1f7; }
+  #navigation ul:after {
+    content: " ";
+    display: block;
+    clear: both; }
+#navigation li {
+  display: block; }
+
+#contact {
+  margin-top: 0.5em; }
+  #contact a {
+    display: block;
+    text-align: center; }
+    #contact a:hover {
+      text-decoration: underline; }
+
+#agenda h3 {
+  text-align: center; }
+
+.list-agenda .time,
+.list-agenda .event {
+  width: 100%;
+  float: left;
+  padding-left: 1.66667%;
+  padding-right: 1.66667%;
+  line-height: 1.25em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em; }
+.list-agenda .time {
+  text-align: center; }
+@media (min-width: 20em) and (max-width: 50em) {
+  .list-agenda .time {
+    width: 25%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+    text-align: right; }
+  .list-agenda .event {
+    width: 75%;
+    float: right;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%; } }
+
+#rsvp > ul > li {
+  list-style: disc;
+  margin-top: 0.5em;
+  padding-left: 0.5em; }
 
 /*# sourceMappingURL=app.css.map */

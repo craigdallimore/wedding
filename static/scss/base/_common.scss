@@ -8,30 +8,25 @@
 
 }
 
-html, body {
+html,
+body {
 
   height : 100%;
 
 }
+
+// Body
+// ----------------------------------------------------------------------------
 
 body {
 
   background : $clr-bg;
   color      : $clr-body-copy;
 
-
   font: {
-    size   : 0.9em;
-    family : arial, helvetica, sans-serif;
+    family : $text-default-family;
+    size   : .9em;
   }
-
-}
-
-.clearfix:after {
-
-  content : "";
-  clear   : both;
-  display : block;
 
 }
 

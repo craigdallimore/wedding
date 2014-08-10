@@ -1,0 +1,21 @@
+//
+// Intro
+//
+
+#intro {
+
+  @include background-size(cover);
+
+  background-image : url('../img/large/kayak.jpg');
+  background-size  : cover;
+  height           : 100%;
+  overflow         : hidden;
+  position         : relative;
+
+  h1 {
+
+    margin : 0;
+
+  }
+
+}

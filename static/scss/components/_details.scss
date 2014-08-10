@@ -1,0 +1,48 @@
+//
+// Details
+//
+
+#details {
+
+  dl {
+
+    @extend %contained;
+
+  }
+
+  dt,
+  dd {
+
+    @include span(6 of 6);
+    line-height    : em($text-size-L);
+    padding-bottom : em($gutter-M);
+    padding-top    : em($gutter-M);
+
+  }
+
+  dt {
+
+    clear : right;
+
+  }
+
+  @include breakpoint($handset) {
+
+    dt {
+
+      @include span(3 of 12);
+      text-align : right;
+
+    }
+
+    dd {
+
+      @include span(9 at 4 of 12);
+
+    }
+
+  }
+
+}
+
+

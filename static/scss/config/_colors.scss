@@ -20,9 +20,45 @@ $clr-grey-4 : #bbb;
 $clr-grey-5 : #ddd;
 $clr-grey-6 : #eee; // lightest
 
+// Theme
+// ----------------------------------------------------------------------------
+
+$grey     : #b2b5ba;
+$charcoal : #232c3b;
+$white    : #fff;
+$purple   : #a080c3;
+$lime     : #bfead9;
+$grey     : #63657e;
+$blue     : #bef6fe;
+$teal     : #5ea1f7;
+$orange   : #ffb41b;
+
+// Base text
+// ----------------------------------------------------------------------------
+
+$clr-text-base : rgb(51, 51, 51);
+
+// Navigation
+// ----------------------------------------------------------------------------
+
+$clr-text-nav : $white;
+$clr-bg-nav   : $teal;
+
+
 // Form elements
 // ----------------------------------------------------------------------------
 
 $clr-border-input : $clr-grey-4;
 $clr-bg-input     : $clr-grey-6;
+
+$clr-bg-submit    : $lime;
+$clr-text-submit  : darken($lime, 40%);
+
+$clr-bdr-form     : lighten($grey, 40%);
+$clr-bdr-form-focus : lighten($grey, 30%);
+
+
+
+
+
 

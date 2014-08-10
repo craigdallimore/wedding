@@ -1,0 +1,20 @@
+//
+// Music
+//
+
+#music {
+
+  p {
+
+    @extend %contained;
+
+  }
+
+
+  .form {
+
+    @extend %contained;
+
+  }
+
+}

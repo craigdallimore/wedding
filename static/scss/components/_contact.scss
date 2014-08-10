@@ -1,0 +1,24 @@
+//
+// Contact
+//
+
+#contact {
+
+  margin-top : em($gutter-M);
+
+  a {
+
+    @extend %centerfied;
+    display    : block;
+    text-align : center;
+
+    &:hover {
+
+      text-decoration : underline;
+
+    }
+
+  }
+
+}
+

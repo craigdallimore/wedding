@@ -1,0 +1,43 @@
+//
+// Navigation
+//
+
+#navigation {
+
+  a {
+
+    @include span(4 of 4);
+    color       : $clr-text-nav;
+    font-family : ywft-hannah-regular;
+    font-size   : em($text-size-L);
+    font-weight : bold;
+    padding     : em($gutter-M);
+    text-align  : center;
+
+  }
+
+  @include breakpoint($handset) {
+
+    a {
+
+      @include span(1 of 6);
+
+    }
+
+  }
+
+  ul {
+
+    @include container(100%);
+    background : $clr-bg-nav;
+
+  }
+
+  li {
+
+    display : block;
+
+  }
+
+}
+

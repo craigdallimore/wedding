@@ -1,0 +1,60 @@
+//
+// Forms
+//
+// ----------------------------------------------------------------------------
+
+.form {
+
+  @extend %centerfied;
+  padding-top : em($gutter-M);
+
+
+  textarea {
+
+    border        : 0;
+    border        : 1px solid $clr-bdr-form;
+    border-radius : 5px;
+    font-family   : $text-default-family;
+    padding       : em($gutter-M);
+    width         : 100%;
+
+    &:focus {
+
+      border      : 1px solid $clr-bdr-form-focus;
+
+    }
+
+  }
+
+}
+
+.input-submit {
+
+  background    : $clr-bg-submit;
+  border        : 0;
+  border-radius : 3px;
+  color         : $clr-text-submit;
+  cursor        : pointer;
+  padding       : em($gutter-M);
+  width         : 100%;
+
+}
+
+.input-text {
+
+  border        : 1px solid $clr-bdr-form;
+  border-radius : 5px;
+  padding       : em($gutter-M);
+  width         : 100%;
+
+  &:focus {
+
+    border      : 1px solid $clr-bdr-form-focus;
+
+  }
+
+}
+
+
+
+

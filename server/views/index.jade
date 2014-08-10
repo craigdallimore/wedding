@@ -25,7 +25,11 @@ block content
     //-
     //-------------------------------------------------------------------------
 
-    nav#navigation
+    nav#navigation(
+      data-0             = "position:static",
+      data-top-top       = "position:fixed;top:0;width:100%;",
+      data-edge-strategy = "set"
+      )
       ul
         li
           a(href="#details") Details
@@ -36,6 +40,8 @@ block content
         li
           a(href="#telegram") Send a telegram
         li
+          a(href="#music") Suggest some music
+        li
           a(href="#registry") Registry
 
 
@@ -43,10 +49,7 @@ block content
     //-
     //-------------------------------------------------------------------------
 
-    section#details(
-      data-bottom-top = "background-color:rgb(0,0,255)",
-      data-top-bottom = "background-color:rba(255,0,0)"
-      )
+    section#details
 
       h2 Details
 
@@ -140,15 +143,11 @@ block content
 
           ul
             li
-              label.label(for="rsvp-message")
-
-              if (rsvpMessage)
-                textarea#rsvp-message(name="rsvpMessage", maxlength="800", rows="8", required)= rsvpMessage
-              else
-                textarea#rsvp-message(name="rsvpMessage", maxlength="800", rows="8", required)
+              textarea#rsvp-message(name="rsvpMessage", maxlength="800", rows="8", required)= rsvpMessage
 
             li
               input#rsvp-submit.input-submit(type="submit", value="RSVP")
+          img.spinner.hide(src="#", width="32", height="32", alt="Loading...")
 
     //- Telegram
     //-
@@ -156,7 +155,87 @@ block content
 
     section#telegram
 
-      h2 Send a telegram
+      h2 Telegram
+
+      if telegramErrorEmpty
+        p It looks like you sent a telegram with nothing in it. Have another go.
+
+      if telegramErrorEmail
+        p Something went wrong and the telegram didn't send. Try again. If it still doesn't work, blame Craig.
+
+      if telegramSent
+
+        p Thank you for sending a telegram!
+        button.btn.btn-retry(type="button") Send another?
+
+      else
+
+        p If you cannot make the wedding date and want to send a message instead you can either email us at 
+          a(href="mailto:wedding@fionaandcraig.com") wedding@fionaandcraig.com 
+          | - or fill out the text box below.
+
+        form.form#form-telegram(action="/telegram", method="post")
+          ul
+            li
+              textarea#telegram-message(name="telegramMessage", maxlength="1800", rows="8", required)= telegramMessage
+
+            li
+              input#telegram-submit.input-submit(type="submit", value="Send")
+          img.spinner.hide(src="#", width="32", height="32", alt="Loading...")
+
+
+    //- Music
+    //-
+    //-------------------------------------------------------------------------
+
+    section#music
+
+      h2 Music
+
+      if musicErrorEmpty
+        p It looks like nothing was sent, please try again.
+
+      if musicErrorEmail
+        p Something went wrong and your selection was not sent, would you mind trying again?
+
+      if musicSent
+
+        p Thanks for sending us some music suggestions!
+
+      else
+
+        p Feel free to suggest some songs for the night.
+        p Please let us know the name of the song as well as the artist.
+
+        form.form#form-music(action="/music", method="post")
+          ul
+            li
+              input.input-text#music-1(
+                type        = "text",
+                name        = "music-1",
+                placeholder = "Song 1 - artist 1"
+                value       = "#{music.track1}",
+                maxlength   = "240"
+                )
+            li
+              input.input-text#music-2(
+                type        = "text",
+                name        = "music-2",
+                placeholder = "Song 2 - artist 2"
+                value       = "#{music.track2}",
+                maxlength   = "240"
+                )
+            li
+              input.input-text#music-3(
+                type        = "text",
+                name        = "music-3",
+                placeholder = "Song 3 - artist 3"
+                value       = "#{music.track3}",
+                maxlength   = "240"
+                )
+            li
+              input#music-submit.input-submit(type="submit", value="Send")
+          img.spinner.hide(src="#", width="32", height="32", alt="Loading...")
 
     //- Registry
     //-
@@ -165,5 +244,8 @@ block content
     section#registry
 
       h2. Registry
+
+      p The wishlist is provided by Prezola.com - you can view it 
+        a(href="https://www.prezola.com/wishlists/10138660") here.
 
     //- KAIZEN

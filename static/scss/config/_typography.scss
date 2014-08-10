@@ -7,7 +7,7 @@
 
 $font-path: '../fonts/';
 
-@each $font-face in ywft-hannah-regular {
+@each $font-face in ywft-hannah-regular, OpenSans-Light-webfont {
   @font-face {
     font-family: $font-face; font-style: normal; font-weight: normal;
     src: url('#{$font-path + $font-face}.eot');
@@ -37,7 +37,7 @@ $text-base-line-height : 1.18;
 // Fonts
 // ----------------------------------------------------------------------------
 
-$text-family-sans    : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!default;
+$text-family-sans    : "OpenSans-Light-webfont", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif!default;
 $text-default-family : $text-family-sans;
 
 // Anchors
@@ -69,7 +69,7 @@ table,
 fieldset,
 hr {
 
-  color  : #fff;
+  color  : $clr-text-base;
   margin : 0;
 
 }

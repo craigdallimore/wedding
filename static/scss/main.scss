@@ -26,28 +26,23 @@ $fa-font-path : '../../bower_components/font-awesome/fonts/'; // path to fonts
 
 @import 'config/_config';       // susy config
 @import 'config/_grid';
+@import 'config/_colors';
 @import 'config/_typography';
 @import 'config/_breakpoints';
-@import 'config/_colors';
 @import 'config/_durations';
 
 // Implementation
 // ----------------------------------------------------------------------------
 
-
-// Libs
-// Ok, so you need
-// - sass to compile
-
-
-
-// Vars
-//@import "mixins";
-//@import "breakpoints";
-//@import "colours";
-//@import "placeholders";
-
-
-// Implementation
 @import 'base/_common';
+@import 'components/_forms';
 @import 'components/_page';
+@import 'components/_intro';
+@import 'components/_details';
+@import 'components/_navigation';
+@import 'components/_contact';
+@import 'components/_agenda';
+@import 'components/_rsvp';
+@import 'components/_telegram';
+@import 'components/_music';
+@import 'components/_registry';

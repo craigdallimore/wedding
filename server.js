@@ -78,7 +78,7 @@ require('./server/routes')(app, settings);
 // Mailer setup
 // ----------------------------------------------------------------------------
 mailer.extend(app, {
-  from             : settings.EMAIL_USER,
+  from             : settings.EMAIL_FROM,
   host             : settings.EMAIL_HOST,
   secureConnection : true,
   port             : 465,

@@ -5,15 +5,15 @@ What is needed next?
 
 - update agenda
 
-- submit RSVP (without javascript)
-- cant be empty
 - submit RSVP (with JavaScript)
 
-- submit telegram (without javascript)
 - submit telegram (with JS)
 
 - submit music track (no js)
+- who is it from?
 - submit music track (avec js)
+
+- add spinners during loading time
 
 - add registry link
 

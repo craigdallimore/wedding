@@ -32,10 +32,59 @@ define([
 
   }
 
+  function onSubmitRsvp(e) {
+
+    e.preventDefault();
+
+    var $form     = $(e.target),
+        $spinner  = $form.find('.spinner'),
+        $textarea = $form.find('textarea'),
+        $prompts  = $form.find('.prompt'),
+        $button   = $form.find('[type="submit"]');
+
+
+    // Do some preliminary validation
+    $prompts.remove();
+
+    if (!$textarea.val()) {
+      $textarea.before('<span class="prompt">Looks like your message has nothing in it.</span>');
+      return;
+    }
+
+    // Set inflight state
+    $button.attr('disabled', true);
+    $spinner.show();
+    $.ajax({
+      url  : '/api/rsvp',
+      type : 'POST',
+      data : $textarea.val()
+    }).then(function(response) {
+      console.log('resp', response);
+    }, function(err) {
+      console.log('err', err);
+    });
+
+  }
+
+  // Initialise the forms
+  function initForms() {
+
+    var $formRsvp     = $('#form-rsvp'),
+        $formTelegram = $('#form-telegram'),
+        $formMusic    = $('#form-music');
+
+    $formRsvp
+      .on('submit', onSubmitRsvp)
+      .find('[required]')
+      .removeAttr('required');
+
+  }
+
 
   function onDocReady() {
 
     //initMap();
+    initForms();
     var s = skrollr.init({
       forceHeight: false
     });
