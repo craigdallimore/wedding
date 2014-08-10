@@ -38,12 +38,29 @@ $orange   : #ffb41b;
 
 $clr-text-base : rgb(51, 51, 51);
 
+// Hyperlinks
+// ----------------------------------------------------------------------------
+
+$clr-link         : darken($teal, 20%);
+$clr-link-hover   : darken($clr-link, 20%);
+$clr-link-active  : darken($clr-link, 30%);
+
+// States
+// ----------------------------------------------------------------------------
+
+$clr-bg-success    :#dff0d8;
+$clr-bdr-success   :#d6e9c6;
+$clr-text-success  :#3c763d;
+
+$clr-bg-error      :#f2dede;
+$clr-bdr-error     :#ebccd1;
+$clr-text-error    :#a94442;
+
 // Navigation
 // ----------------------------------------------------------------------------
 
 $clr-text-nav : $white;
 $clr-bg-nav   : $teal;
-
 
 // Form elements
 // ----------------------------------------------------------------------------
@@ -51,14 +68,18 @@ $clr-bg-nav   : $teal;
 $clr-border-input : $clr-grey-4;
 $clr-bg-input     : $clr-grey-6;
 
-$clr-bg-submit    : $lime;
-$clr-text-submit  : darken($lime, 40%);
+$clr-bg-submit       : $lime;
+$clr-bg-submit-hover : lighten($clr-bg-submit, 5%);
 
-$clr-bdr-form     : lighten($grey, 40%);
+$clr-text-submit       : darken($lime, 40%);
+$clr-text-submit-hover : darken($clr-text-submit, 20%);
+
+$clr-bdr-form       : lighten($grey, 40%);
 $clr-bdr-form-focus : lighten($grey, 30%);
 
+// Intro
+// ----------------------------------------------------------------------------
 
+$clr-text-intro : $white;
 
-
-
-
+// Kaizen

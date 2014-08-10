@@ -22,11 +22,51 @@
 
 }
 
+.link {
+
+  color : $clr-link;
+
+  &:hover {
+
+    color           : $clr-link-hover;
+    text-decoration : underline;
+
+  }
+
+  &:active {
+
+    color : $clr-link-active;
+
+  }
+}
+
 h2 {
 
-  margin-top : em($gutter-S);
+  margin-top : em($gutter-XL);
   text-align : center;
   width      : 100%;
 
 }
 
+.notification {
+
+  padding    : em($gutter-M);
+  text-align : center;
+
+}
+
+.success {
+
+  background : $clr-bg-success;
+  border     : $clr-bdr-success;
+  color      : $clr-text-success;
+
+}
+
+.error {
+
+  background : $clr-bg-error;
+  border     : $clr-bdr-error;
+  color      : $clr-text-error;
+
+}

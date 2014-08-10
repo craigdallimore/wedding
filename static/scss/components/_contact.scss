@@ -12,13 +12,26 @@
     display    : block;
     text-align : center;
 
-    &:hover {
+  }
 
-      text-decoration : underline;
+  #map-link {
 
-    }
+    margin-top : em($gutter-M);
+    text-align : center;
+
+  }
+
+
+}
+
+@include breakpoint($handset-and-up) {
+
+  #contact #map-link {
+
+    display : none;
 
   }
 
 }
+
 

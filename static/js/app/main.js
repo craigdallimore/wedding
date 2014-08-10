@@ -3,26 +3,32 @@
 //
 // ----------------------------------------------------------------------------
 
+define('gmaps', ['async!https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDdDJxZ9B35sIbBmn6MbqCWjXwHH2YCWYw&sensor=false'], function() {
+
+    return window.google.maps;
+
+});
+
 define([
 
   'jquery',
-  'skrollr'
-  //'async!https://maps.googleapis.com/maps/api/js?key=AIzaSyDdDJxZ9B35sIbBmn6MbqCWjXwHH2YCWYw&sensor=false'
+  'skrollr',
+  'gmaps'
 
-], function($, skrollr) {
+], function($, skrollr, gmaps) {
 
   // Set up a google map
   function initMap() {
 
     var $map = $('#map'),
-      point  = new google.maps.LatLng(-37.4226104, 175.8031165),
-      map    = new google.maps.Map($map[0], {
+      point  = new gmaps.LatLng(-37.4226104, 175.8031165),
+      map    = new gmaps.Map($map[0], {
 
         center : point,
         zoom   : 12
 
       }),
-      marker = new google.maps.Marker({
+      marker = new gmaps.Marker({
 
         position : point,
         map      : map,
@@ -32,6 +38,7 @@ define([
 
   }
 
+/*
   function onSubmitRsvp(e) {
 
     e.preventDefault();
@@ -79,12 +86,13 @@ define([
       .removeAttr('required');
 
   }
+*/
 
 
   function onDocReady() {
 
-    //initMap();
-    initForms();
+    initMap();
+    //initForms();
     var s = skrollr.init({
       forceHeight: false
     });

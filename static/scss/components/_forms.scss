@@ -8,7 +8,6 @@
   @extend %centerfied;
   padding-top : em($gutter-M);
 
-
   textarea {
 
     border        : 0;
@@ -35,8 +34,16 @@
   border-radius : 3px;
   color         : $clr-text-submit;
   cursor        : pointer;
-  padding       : em($gutter-M);
+  padding       : em($gutter-L);
   width         : 100%;
+
+  &:hover,
+  &:focus {
+
+    background : $clr-bg-submit-hover;
+    color      : $clr-text-submit-hover;
+
+  }
 
 }
 
@@ -44,7 +51,7 @@
 
   border        : 1px solid $clr-bdr-form;
   border-radius : 5px;
-  padding       : em($gutter-M);
+  padding       : em($gutter-L);
   width         : 100%;
 
   &:focus {
@@ -54,7 +61,6 @@
   }
 
 }
-
 
 
 

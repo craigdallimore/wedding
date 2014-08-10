@@ -4,6 +4,8 @@
 
 #navigation {
 
+  z-index : 5;
+
   a {
 
     @include span(4 of 4);
@@ -16,11 +18,30 @@
 
   }
 
+
   @include breakpoint($handset) {
 
     a {
 
       @include span(1 of 6);
+      padding : em($gutter-M) + em($gutter-S) em($gutter-M) em($gutter-M);
+
+    }
+
+    .multi-word a {
+
+      padding : em($gutter-S) em($gutter-M);
+
+    }
+
+  }
+
+  @include breakpoint($tablet-and-up) {
+
+    a {
+
+      @include span(1 of 6);
+      padding : em($gutter-M);
 
     }
 

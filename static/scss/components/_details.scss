@@ -26,7 +26,7 @@
 
   }
 
-  @include breakpoint($handset) {
+  @include breakpoint($handset-and-up) {
 
     dt {
 
@@ -45,4 +45,21 @@
 
 }
 
+#map {
 
+  @extend %contained;
+  display : none;
+
+}
+
+@include breakpoint($handset-and-up) {
+
+  #map {
+
+    display : block;
+    height     : 30em;
+    margin-top : em($gutter-M);
+
+  }
+
+}

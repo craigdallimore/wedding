@@ -32,18 +32,18 @@
 
   }
 
-  @include breakpoint($handset) {
+  @include breakpoint($handset-and-up) {
 
     .time {
 
-      @include span(3 of 12);
+      @include span(6 of 12);
       text-align : right;
 
     }
 
     .event {
 
-      @include span(9 at 4 of 12);
+      @include span(6 at 7 of 12);
 
     }
 

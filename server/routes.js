@@ -1,5 +1,9 @@
 module.exports = function(app, settings) {
 
+  function existy(x)  { return x != null; }
+  function lengthy(x) { return existy(x) && existy(x.length) && x.length > 0; }
+  function truthy(x)  { return (x !== false) && existy(x); }
+
   // Index
   // --------------------------------------------------------------------------
 
@@ -7,31 +11,13 @@ module.exports = function(app, settings) {
 
   function index(req, res) {
 
-    // Defult music sticky text
-    res.locals.music = {
-      track1 : '',
-      track2 : '',
-      track3 : ''
-    };
+    // RSVP
+    // ------------------------------------------------------------------------
 
     // Success: RSVP
     if (req.session && req.session.rsvped) {
 
       res.locals.rsvped = true;
-
-    }
-
-    // Success: Telegram
-    if (req.session.telegramSent) {
-
-      res.locals.telegramSent = true;
-
-    }
-
-    // Success: Music
-    if (req.session.musicSent) {
-
-      res.locals.musicSent = true;
 
     }
 
@@ -52,6 +38,16 @@ module.exports = function(app, settings) {
 
     }
 
+    // TELEGRAM
+    // ------------------------------------------------------------------------
+
+    // Success: Telegram
+    if (req.session.telegramSent) {
+
+      res.locals.telegramSent = true;
+
+    }
+
     // Error: telegram empty
     if (req.session.telegramErrorEmpty) {
 
@@ -69,11 +65,45 @@ module.exports = function(app, settings) {
 
     }
 
+    // MUSIC
+    // ------------------------------------------------------------------------
+    function localify(fieldName) {
+      if(lengthy(req.session[fieldName])) {
+        res.locals.music[fieldName] = req.session[fieldName];
+      }
+    }
+
+    // Music default
+    res.locals.music = {
+      music1    : '',
+      music2    : '',
+      music3    : '',
+      musicName : ''
+    };
+
+    // Attempt to preserve state.
+    ['music1', 'music2', 'music3', 'musicName'].forEach(localify);
+
+    // Success: Music
+    if (req.session.musicSent) {
+
+      res.locals.musicSent = true;
+
+    }
+
     // Error: music empty
     if (req.session.musicErrorEmpty) {
 
       delete req.session.musicErrorEmpty;
       res.locals.musicErrorEmpty = true;
+
+    }
+
+    // Error: name empty
+    if (req.session.musicErrorNameEmpty) {
+
+      delete req.session.musicErrorNameEmpty;
+      res.locals.musicErrorNameEmpty = true;
 
     }
 
@@ -83,13 +113,9 @@ module.exports = function(app, settings) {
       delete req.session.musicErrorEmail;
       res.locals.musicErrorEmail = true;
 
-      res.locals.music = {
-        track1: req.session.music1,
-        track2: req.session.music2,
-        track3: req.session.music3
-      };
-
     }
+
+    console.log('locals', res.locals);
 
     res.render('index.jade', res.locals);
 
@@ -198,19 +224,38 @@ module.exports = function(app, settings) {
   // POST to /music
   // --------------------------------------------------------------------------
 
+  //
+  // conditions to try
+  // no music, no name: nameerror and musicerror
+  // no music: music error (name preserved)
+  // no name: name error (music preserved)
+  // music and name: submission
+  //
   app.post('/music', music);
 
   function music(req, res, next) {
 
-    console.log(req.body);
+    console.log('BODY', req.body);
 
-    var music1 = req.body['music-1'],
-        music2 = req.body['music-2'],
-        music3 = req.body['music-3'];
+    // If it has length and it was submitted, add it too the session
+    function sessionify(fieldName) {
+      if(lengthy(req.body[fieldName])) {
+        req.session[fieldName] = req.body[fieldName];
+      }
+    }
+
+    var music1    = req.body.music1,
+        music2    = req.body.music2,
+        music3    = req.body.music3,
+        musicName = req.body.musicName;
+
+    // Attempt to preserve state.
+    ['music1', 'music2', 'music3', 'musicName'].forEach(sessionify);
 
     // Look out for empty submissions
-    if (!music1.length && !music2.length && !music3.length) {
+    if (!lengthy(music1) && !lengthy(music2) && !lengthy(music3)) {
 
+      console.log('NO MUSIC');
       req.session.musicErrorEmpty = true;
 
       res.redirect('/#music');
@@ -219,15 +264,28 @@ module.exports = function(app, settings) {
 
     }
 
+    // Look out for missing names
+    if (!lengthy(musicName)) {
+
+      console.log('NO NAME');
+      req.session.musicErrorNameEmpty = true;
+
+      res.redirect('/#music');
+
+      return;
+
+    }
+
     // Otherwise, attempt a music email
-    app.mailer.send('email-song', {
+    app.mailer.send('email-music', {
 
       to      : settings.EMAIL_TO,
       subject : 'MUSIC REQUEST',
       message : {
-        track1 : music1,
-        track2 : music2,
-        track3 : music3
+        music1    : music1,
+        music2    : music2,
+        music3    : music3,
+        musicName : musicName
       }
 
     }, function(err) {
@@ -237,11 +295,11 @@ module.exports = function(app, settings) {
       if (err) {
 
         console.log('MUSIC error', err);
-
-        req.session.musicErrorEmail = true;
         req.session.music1          = music1;
         req.session.music2          = music2;
         req.session.music3          = music3;
+        req.session.musicName       = musicName;
+        req.session.musicErrorEmail = true;
 
       } else {
 

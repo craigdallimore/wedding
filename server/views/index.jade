@@ -37,9 +37,9 @@ block content
           a(href="#agenda") Agenda
         li
           a(href="#rsvp") RSVP
-        li
+        li.multi-word
           a(href="#telegram") Send a telegram
-        li
+        li.multi-word
           a(href="#music") Suggest some music
         li
           a(href="#registry") Registry
@@ -56,15 +56,19 @@ block content
       dl
 
         dt When
-        dd 7th February 2015, 1:30pm
+        dd 7th February 2015, 1:45pm
 
         dt Where
-        dd Waihi Waterlily Gardens, Bay Of Plenty, New Zealand
+        dd
+          a.link(href="http://waterlily.co.nz/") Waihi Waterlily Gardens
+          |, Bay Of Plenty, New Zealand
 
       #contact
-        a(href='mailto:wedding@fionaandcraig.com') wedding@fionaandcraig.com
+        a.link(href='mailto:wedding@fionaandcraig.com') wedding@fionaandcraig.com
+        a.link#map-link(href="https://www.google.com/maps/place/Waihi+Waterlily+Gardens/@-37.42261,175.803116,17z/data=!3m1!4b1!4m2!3m1!1s0x6d6d904c2fea2b8d:0x63c04654064fdd0d?hl=en-NZ") View on Google Maps
 
       #map
+
 
     //- Agenda
     //-
@@ -74,33 +78,40 @@ block content
 
       h2 Agenda
 
-      h3 Thursday, 5th February
+      h3 Friday, 6th February
 
       ul.list-agenda
         li
           span.time 7pm
           span.event TBD
 
-      h3 Friday, 6th February
+      h3 Saturday, 7th February
 
       ul.list-agenda
         li
-          span.time 1.30 pm
-          span.event Bus arrives at the venue
+          span.time From 12:30pm
+          span.event Bus pickups in the Waihi area
         li
-          span.time 2 pm
+          span.time 1:45 pm
           span.event Wedding ceremony
         li
           span.time 2.20 pm
           span.event Bubbles &amp; mingling
         li
-          span.time 2.40 pm
-          span.event Group photos
-        li
           span.time 3 pm
-          span.event Bridal party photos &amp; lawn games start
+          span.event Lawn games; nibbles; hang out and enjoy the afternoon!
+        li
+          span.time ~6:00 pm
+          span.event Reception
+        li
+          span.time 10 pm
+          span.event First bus leaves
+        li
+          span.time 11:30 pm
+          span.event Second bus leaves
 
-      h3 Saturday, 7th February
+
+      h3 Sunday, 8th February
 
       ul.list-agenda
         li
@@ -116,28 +127,34 @@ block content
 
       if rsvpErrorEmail
 
-        p It looks like something went wrong and your message was not sent. This is probably Craig's fault. Can you pleasse try sending it again?
+        p.notification.error It looks like something went wrong and your message was not sent. This is probably Craig's fault. Can you please try sending it again?
 
       if rsvpErrorEmpty
 
-        p It looks like you didn't send a message, would you mind trying again?
+        p.notification.error It looks like you didn't send a message, would you mind trying again?
 
       if rsvped
 
-        p Thanks for RSVPing! An email has been sent to <a href="mailto:wedding@fionaandcraig.com">wedding@fionaandcraig.com<a/> with your message.
-        button.btn.btn-retry I want to try again.
+        p.notification.success Thanks for RSVPing! An email has been sent to 
+          a(href="mailto:wedding@fionaandcraig.com") wedding@fionaandcraig.com 
+          | with your message.
 
       else
 
-        p You can RSVP by filling in the form below or emailling us at <a href="mailto:wedding@fionaandcraig.com">wedding@fionaandcraig.com<a/>.
-        p It will help us plan correctly if you can tell us
+        p Please RSVP by filling in the form below or emailing us at 
+          a.link(href="mailto:wedding@fionaandcraig.com") wedding@fionaandcraig.com
+          |.
+
+        p It will help us plan if you can tell us:
 
         ul
-          li what kind of food is out of bounds
-          li if anyone on your invitation is not coming
           li who you are (the form doesn't know!)
+          li if you can make it
+          li if anyone on your invitation is not coming
+          li if any food is out of bounds
           li if you need a place on the bus to the venue (if so, please let us know where you are staying)
-          li your email address
+          li your preferred email address
+          li anything else
 
         form.form#form-rsvp(action="/rsvp", method="post")
 
@@ -147,7 +164,6 @@ block content
 
             li
               input#rsvp-submit.input-submit(type="submit", value="RSVP")
-          img.spinner.hide(src="#", width="32", height="32", alt="Loading...")
 
     //- Telegram
     //-
@@ -158,20 +174,19 @@ block content
       h2 Telegram
 
       if telegramErrorEmpty
-        p It looks like you sent a telegram with nothing in it. Have another go.
+        p.notification.error It looks like you sent a telegram with nothing in it. Have another go.
 
       if telegramErrorEmail
-        p Something went wrong and the telegram didn't send. Try again. If it still doesn't work, blame Craig.
+        p.notification.error Something went wrong and the telegram didn't send. Try again. If it still doesn't work, blame Craig.
 
       if telegramSent
 
-        p Thank you for sending a telegram!
-        button.btn.btn-retry(type="button") Send another?
+        p.notification.success Thank you for sending a telegram!
 
       else
 
         p If you cannot make the wedding date and want to send a message instead you can either email us at 
-          a(href="mailto:wedding@fionaandcraig.com") wedding@fionaandcraig.com 
+          a.link(href="mailto:wedding@fionaandcraig.com") wedding@fionaandcraig.com 
           | - or fill out the text box below.
 
         form.form#form-telegram(action="/telegram", method="post")
@@ -181,7 +196,6 @@ block content
 
             li
               input#telegram-submit.input-submit(type="submit", value="Send")
-          img.spinner.hide(src="#", width="32", height="32", alt="Loading...")
 
 
     //- Music
@@ -193,49 +207,61 @@ block content
       h2 Music
 
       if musicErrorEmpty
-        p It looks like nothing was sent, please try again.
+        p.notification.error It looks like no suggestions were sent, please try again.
+
+      if musicErrorNameEmpty
+        p.notification.error Could you add your name please?
 
       if musicErrorEmail
-        p Something went wrong and your selection was not sent, would you mind trying again?
+        p.notification.error Something went wrong and your selection was not sent, would you mind trying again?
 
       if musicSent
 
-        p Thanks for sending us some music suggestions!
+        p.notification.success Thanks for sending us some music suggestions!
 
       else
 
         p Feel free to suggest some songs for the night.
-        p Please let us know the name of the song as well as the artist.
+        p Please let us know the name (and the artist if possible).
 
         form.form#form-music(action="/music", method="post")
           ul
             li
-              input.input-text#music-1(
+              input.input-text(
                 type        = "text",
-                name        = "music-1",
+                name        = "music1",
                 placeholder = "Song 1 - artist 1"
-                value       = "#{music.track1}",
+                value       = "#{music.music1}",
                 maxlength   = "240"
                 )
             li
-              input.input-text#music-2(
+              input.input-text(
                 type        = "text",
-                name        = "music-2",
+                name        = "music2",
                 placeholder = "Song 2 - artist 2"
-                value       = "#{music.track2}",
+                value       = "#{music.music2}",
                 maxlength   = "240"
                 )
             li
-              input.input-text#music-3(
+              input.input-text(
                 type        = "text",
-                name        = "music-3",
+                name        = "music3",
                 placeholder = "Song 3 - artist 3"
-                value       = "#{music.track3}",
+                value       = "#{music.music3}",
+                maxlength   = "240"
+                )
+          p Who are you?
+          ul
+            li
+              input.input-text#music-name(
+                type        = "text",
+                name        = "musicName",
+                placeholder = "Your name"
+                value       = "#{music.musicName}",
                 maxlength   = "240"
                 )
             li
               input#music-submit.input-submit(type="submit", value="Send")
-          img.spinner.hide(src="#", width="32", height="32", alt="Loading...")
 
     //- Registry
     //-
@@ -246,6 +272,6 @@ block content
       h2. Registry
 
       p The wishlist is provided by Prezola.com - you can view it 
-        a(href="https://www.prezola.com/wishlists/10138660") here.
+        a.link(href="https://www.prezola.com/wishlists/10138660") here.
 
     //- KAIZEN
