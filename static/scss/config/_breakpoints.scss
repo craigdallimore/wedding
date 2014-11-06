@@ -1,0 +1,15 @@
+// ----------------------------------------------------------------------------
+// Breakpoints
+// ----------------------------------------------------------------------------
+
+$desktop        : em(1400px);
+$laptop         : em(1024px) em(1400px);
+$tablet         : em(800px) em(1024px);
+$tablet-and-up  : em(800px);
+$handset        : em(480px) em(800px);
+$handset-and-up : em(480px);
+$handset-and-down : 0 em(800px);
+$oldphone       : 0 em(480px);
+
+// Does this make sense? Shouldn't it be oldphone first?
+

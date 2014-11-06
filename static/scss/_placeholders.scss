@@ -1,0 +1,35 @@
+// Placeholders
+// ----------------------------------------------------------------------------
+
+%content-block {
+
+  padding: $gutter;
+  margin-top: $gutter / 2;
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+
+  @include span-columns(7 of 12);
+
+  @include media($mobile) {
+
+    @include shift(0);
+    @include fill-parent;
+
+  }
+
+  @include media($desktop) {
+
+    @include span-columns(6);
+    @include shift(0);
+
+  }
+
+}
+
+%cover-image {
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  @include background-size(cover);
+
+}

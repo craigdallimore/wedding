@@ -1,0 +1,36 @@
+/* Globals
+---------------------------------------------------------------------------- */
+
+* {
+
+  @include box-sizing(border-box);
+
+}
+
+body {
+
+  background: $clr-bg;
+  color: $clr-body-copy;
+
+
+  font: {
+    size: 0.9em;
+    family: arial, helvetica, sans-serif;
+  }
+
+}
+
+.clearfix:after {
+
+  content: "";
+  clear: both;
+  display: block;
+
+}
+
+.hide {
+
+  display: none;
+
+}
+

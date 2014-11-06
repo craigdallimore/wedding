@@ -1,0 +1,78 @@
+//
+// Page
+//
+// ----------------------------------------------------------------------------
+
+.main {
+
+  height: 100%;
+
+  > section {
+
+    overflow       : hidden;
+    padding-bottom : em($gutter-XXL);
+
+  }
+
+}
+
+.decoration {
+
+  @extend %cover-image;
+
+}
+
+.link {
+
+  color : $clr-link;
+
+  &:hover {
+
+    color           : $clr-link-hover;
+    text-decoration : underline;
+
+  }
+
+  &:active {
+
+    color : $clr-link-active;
+
+  }
+}
+
+h2 {
+
+  margin-top : em($gutter-XL);
+  text-align : center;
+  width      : 100%;
+
+  @include breakpoint($oldphone) {
+
+    margin-top : 0;
+
+  }
+
+}
+
+.notification {
+
+  padding    : em($gutter-M);
+  text-align : center;
+
+}
+
+.success {
+
+  background : $clr-bg-success;
+  border     : $clr-bdr-success;
+  color      : $clr-text-success;
+
+}
+
+.error {
+
+  background : $clr-bg-error;
+  border     : $clr-bdr-error;
+  color      : $clr-text-error;
+
+}

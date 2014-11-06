@@ -1,0 +1,26 @@
+// ----------------------------------------------------------------------------
+// Placeholders
+// ----------------------------------------------------------------------------
+
+%cover-image {
+
+  background-position : center top;
+  background-repeat   : no-repeat;
+  background-size     : cover;
+
+}
+
+%centerfied {
+
+  margin : 0 auto;
+  width  : 80%;
+
+}
+
+%contained {
+
+  @include container(80%);
+  max-width : 30em;
+  max-width : 50vw;
+
+}

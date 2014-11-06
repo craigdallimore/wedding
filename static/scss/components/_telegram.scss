@@ -1,0 +1,19 @@
+//
+// Telegram
+//
+
+#telegram {
+
+  p {
+
+    @extend %contained;
+
+  }
+
+  .form {
+
+    @extend %contained;
+
+  }
+
+}

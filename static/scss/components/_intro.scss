@@ -1,0 +1,34 @@
+//
+// Intro
+//
+
+#intro {
+
+  @include background-size(cover);
+
+  background-image : url('../img/large/kayak.jpg');
+  background-size  : cover;
+  height           : 100%;
+  overflow         : hidden;
+  position         : relative;
+
+  h1 {
+
+    color      : $clr-text-intro;
+    margin     : em($gutter-XL) 0 0;
+    text-align : center;
+
+  }
+
+  .aid {
+
+    bottom     : em($gutter-XL);
+    color      : $clr-text-intro;
+    font-size  : em($text-size-XXL);
+    position   : absolute;
+    text-align : center;
+    width      : 100%;
+
+  }
+
+}

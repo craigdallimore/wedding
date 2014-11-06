@@ -1,0 +1,30 @@
+// Summary list
+// ----------------------------------------------------------------------------
+
+.summary-list {
+
+  @extend %content-block;
+
+  dt, dd {
+
+    padding-bottom: $gutter;
+
+  }
+
+  dt {
+
+    @include span-columns(2 of 6);
+
+  }
+
+  dd {
+
+    @include span-columns(4 of 6);
+    @include omega;
+    margin-left: 0;
+
+  }
+
+}
+
+

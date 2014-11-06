@@ -1,0 +1,15 @@
+//
+// Accommodation
+//
+
+#accommodation {
+
+  @extend %contained;
+
+  p {
+
+    margin-top: em($gutter-M);
+
+  }
+
+}

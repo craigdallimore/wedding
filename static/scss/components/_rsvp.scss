@@ -1,0 +1,24 @@
+//
+// RSVP
+//
+
+#rsvp {
+
+  p,
+  ul {
+
+    @extend %contained;
+
+  }
+
+  > ul > li {
+
+    list-style   : disc;
+    margin-top   : em($gutter-M);
+    padding-left : em($gutter-M);
+
+  }
+
+
+}
+

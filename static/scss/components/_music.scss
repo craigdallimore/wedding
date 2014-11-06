@@ -1,0 +1,26 @@
+//
+// Music
+//
+
+#music {
+
+  p {
+
+    @extend %contained;
+    margin-top : em($gutter-M);
+
+  }
+
+  .form {
+
+    @extend %contained;
+
+  }
+
+  li {
+
+    padding-bottom: em($gutter-M);
+
+  }
+
+}

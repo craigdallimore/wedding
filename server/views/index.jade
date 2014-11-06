@@ -1,0 +1,301 @@
+extends layout
+
+block title
+  title Fish and Chips
+
+block content
+
+  nav#secondary-navigation
+
+    button#btn-toggle-nav.btn.btn-icon.fa.fa-navicon
+
+    ul
+      li
+        a(href="#details") Details
+      li
+        a(href="#accommodation") Accommodation
+      li
+        a(href="#agenda") Agenda
+      li
+        a(href="#rsvp") RSVP
+      li.multi-word
+        a(href="#telegram") Send a telegram
+      li.multi-word
+        a(href="#music") Suggest some music
+      li
+        a(href="#registry") Registry
+
+
+  .main
+
+    //- Intro
+    //-
+    //-------------------------------------------------------------------------
+
+    section#intro(
+      data-smooth-scrolling="on",
+      data-top        = "background-position:0 0em",
+      data-top-bottom = "background-position:0 2em"
+      )
+      h1(
+        data-top = "opacity:1",
+        data-600 = "opacity:0"
+        ) Fiona &amp; Craig are getting married!
+      i.fa.fa-arrow-circle-down.aid
+
+    //- Navigation
+    //-
+    //-------------------------------------------------------------------------
+
+    nav#navigation(
+      data-0             = "position:static",
+      data-top-top       = "position:fixed;top:0;width:100%;",
+      data-edge-strategy = "set"
+      )
+      ul
+        li
+          a(href="#details") Details
+        li
+          a(href="#accommodation") Accommodation
+        li
+          a(href="#agenda") Agenda
+        li
+          a(href="#rsvp") RSVP
+        li.multi-word
+          a(href="#telegram") Send a telegram
+        li.multi-word
+          a(href="#music") Suggest some music
+        li
+          a(href="#registry") Registry
+
+    //- Details
+    //-
+    //-------------------------------------------------------------------------
+
+    section#details
+
+      h2 Details
+
+      dl
+
+        dt When
+        dd 7th February 2015, 1:45pm
+
+        dt Where
+        dd
+          a.link(href="http://waterlily.co.nz/") Waihi Waterlily Gardens
+          |, Bay Of Plenty, New Zealand
+
+      #contact
+        a.link(href='mailto:wedding@fionaandcraig.com') wedding@fionaandcraig.com
+        a.link#map-link(href="https://www.google.com/maps/place/Waihi+Waterlily+Gardens/@-37.42261,175.803116,17z/data=!3m1!4b1!4m2!3m1!1s0x6d6d904c2fea2b8d:0x63c04654064fdd0d?hl=en-NZ") View on Google Maps
+
+      #map
+
+    //- Accommodation
+
+    section#accommodation
+
+      h2 Accommodation
+
+      p As this is a long weekend, we recommend booking accommodation soon! Waihi, Waihi Beach and Athenree are all good options.
+
+      p ( Some limited camping spots are available on Fiona's parents' section. Get in touch if you are interested. )
+
+    //- Agenda
+    //-
+    //-------------------------------------------------------------------------
+
+    section#agenda
+
+      h2 Agenda
+
+      h3 Friday, 6th February
+
+      ul.list-agenda
+        li
+          span.time From 5pm
+          span.event Drop in for a drink and a nibble at 55 Bowentown Blvd, Waihi Beach.
+
+      h3 Saturday, 7th February
+
+      ul.list-agenda
+        li
+          span.time From 12:30pm
+          span.event Bus pickups in the Waihi area.
+        li
+          span.time 1:45 pm
+          span.event Wedding ceremony.
+        li
+          span.time 2.20 pm
+          span.event Bubbles &amp; mingling.
+        li
+          span.time 3 pm
+          span.event Lawn games; nibbles; hang out and enjoy the afternoon!
+        li
+          span.time ~6:00 pm
+          span.event Reception.
+        li
+          span.time 10 pm
+          span.event First bus leaves.
+        li
+          span.time 11:30 pm
+          span.event Second bus leaves.
+
+    //-RSVP
+    //-------------------------------------------------------------------------
+
+    section#rsvp
+
+      h2 R.S.V.P.
+
+      if rsvpErrorEmail
+
+        p.notification.error It looks like something went wrong and your message was not sent. This is probably Craig's fault. Can you please try sending it again?
+
+      if rsvpErrorEmpty
+
+        p.notification.error It looks like you didn't send a message, would you mind trying again?
+
+      if rsvped
+
+        p.notification.success Thanks for RSVPing! An email has been sent to 
+          a(href="mailto:wedding@fionaandcraig.com") wedding@fionaandcraig.com 
+          | with your message.
+
+      else
+
+        p Please RSVP by filling in the form below or emailing us at 
+          a.link(href="mailto:wedding@fionaandcraig.com") wedding@fionaandcraig.com
+          |.
+
+        p It will help us plan if you can tell us:
+
+        ul
+          li who you are (the form doesn't know!)
+          li if you can make it
+          li if anyone on your invitation is not coming
+          li if any food is out of bounds
+          li if you need a place on the bus to the venue (if so, please let us know where you are staying)
+          li your preferred email address
+          li anything else
+
+        form.form#form-rsvp(action="/rsvp", method="post")
+
+          ul
+            li
+              textarea#rsvp-message(name="rsvpMessage", maxlength="800", rows="8", required)= rsvpMessage
+
+            li
+              input#rsvp-submit.input-submit(type="submit", value="RSVP")
+
+    //- Telegram
+    //-
+    //-------------------------------------------------------------------------
+
+    section#telegram
+
+      h2 Telegram
+
+      if telegramErrorEmpty
+        p.notification.error It looks like you sent a telegram with nothing in it. Have another go.
+
+      if telegramErrorEmail
+        p.notification.error Something went wrong and the telegram didn't send. Try again. If it still doesn't work, blame Craig.
+
+      if telegramSent
+
+        p.notification.success Thank you for sending a telegram!
+
+      else
+
+        p If you cannot make the wedding date and want to send a message instead you can either email us at 
+          a.link(href="mailto:wedding@fionaandcraig.com") wedding@fionaandcraig.com 
+          | - or fill out the text box below.
+
+        form.form#form-telegram(action="/telegram", method="post")
+          ul
+            li
+              textarea#telegram-message(name="telegramMessage", maxlength="1800", rows="8", required)= telegramMessage
+
+            li
+              input#telegram-submit.input-submit(type="submit", value="Send")
+
+
+    //- Music
+    //-
+    //-------------------------------------------------------------------------
+
+    section#music
+
+      h2 Music
+
+      if musicErrorEmpty
+        p.notification.error It looks like no suggestions were sent, please try again.
+
+      if musicErrorNameEmpty
+        p.notification.error Could you add your name please?
+
+      if musicErrorEmail
+        p.notification.error Something went wrong and your selection was not sent, would you mind trying again?
+
+      if musicSent
+
+        p.notification.success Thanks for sending us some music suggestions!
+
+      else
+
+        p Feel free to suggest some songs for the night.
+        p Please let us know the name (and the artist if possible).
+
+        form.form#form-music(action="/music", method="post")
+          ul
+            li
+              input.input-text(
+                type        = "text",
+                name        = "music1",
+                placeholder = "Song 1 - artist 1"
+                value       = "#{music.music1}",
+                maxlength   = "240"
+                )
+            li
+              input.input-text(
+                type        = "text",
+                name        = "music2",
+                placeholder = "Song 2 - artist 2"
+                value       = "#{music.music2}",
+                maxlength   = "240"
+                )
+            li
+              input.input-text(
+                type        = "text",
+                name        = "music3",
+                placeholder = "Song 3 - artist 3"
+                value       = "#{music.music3}",
+                maxlength   = "240"
+                )
+          p Who are you?
+          ul
+            li
+              input.input-text#music-name(
+                type        = "text",
+                name        = "musicName",
+                placeholder = "Your name"
+                value       = "#{music.musicName}",
+                maxlength   = "240"
+                )
+            li
+              input#music-submit.input-submit(type="submit", value="Send")
+
+    //- Registry
+    //-
+    //-------------------------------------------------------------------------
+
+    section#registry
+
+      h2. Registry
+
+      p If you want to give a gift, we have a registry provided by Prezola.com - you can view it 
+        a.link(href="https://www.prezola.com/wishlists/10138660") here.
+
+    //- KAIZEN

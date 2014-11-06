@@ -1,0 +1,11 @@
+node_modules/
+static/.sass-cache/
+/.sass-cache/
+static/css/
+*.swp
+*.map
+index.html
+/tests/unit/*.html
+settings.js
+static/dist/
+static/bower_components/

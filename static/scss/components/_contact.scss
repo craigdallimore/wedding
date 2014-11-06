@@ -1,0 +1,37 @@
+//
+// Contact
+//
+
+#contact {
+
+  margin-top : em($gutter-M);
+
+  a {
+
+    @extend %centerfied;
+    display    : block;
+    text-align : center;
+
+  }
+
+  #map-link {
+
+    margin-top : em($gutter-M);
+    text-align : center;
+
+  }
+
+
+}
+
+@include breakpoint($handset-and-up) {
+
+  #contact #map-link {
+
+    display : none;
+
+  }
+
+}
+
+

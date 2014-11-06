@@ -1,0 +1,59 @@
+//
+// Agenda
+//
+
+#agenda {
+
+  h3 {
+
+    text-align : center;
+
+  }
+
+}
+
+.list-agenda {
+
+  @extend %contained;
+
+  li {
+
+    overflow : hidden;
+
+  }
+
+  .time,
+  .event {
+
+    @include span(6 of 6);
+    line-height    : em($text-size-L);
+    padding-bottom : em($gutter-M);
+    padding-top    : em($gutter-M);
+
+  }
+
+  .time {
+
+    text-align : center;
+
+  }
+
+  @include breakpoint($handset-and-up) {
+
+    .time {
+
+      @include span(6 of 12);
+      text-align : right;
+
+    }
+
+    .event {
+
+      @include span(6 at 7 of 12);
+
+    }
+
+  }
+
+}
+
