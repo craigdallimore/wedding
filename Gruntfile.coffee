@@ -30,8 +30,6 @@ module.exports = (grunt) ->
 
     sass:
       dist:
-        options:
-          sourcemap: true
         files:
           '<%= dirs.dist %>app.css': '<%= dirs.scss %>main.scss'
 
